@@ -39,6 +39,7 @@ The goal of the project is to create an application that allows the user to inpu
     * Add the class of tag to each span element.
     * Each tag will hold a single input value.
     * Add each input value to the array of tags.
+    
 
 ### Continued development
 

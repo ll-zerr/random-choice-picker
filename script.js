@@ -5,6 +5,14 @@ const textarea = document.getElementById('textarea');
 
 textarea.addEventListener('keyup', (e) => {
     createTags(e.target.value)
+
+    if(e.key === 'Enter') {   // If the key pressed is enter
+        setTimeout(() => {  // Wait 10 milliseconds and then clear the inputs from the text area
+            e.target.value = ''
+        }, 10)
+
+        randomSelect()
+    }
 })
 
 function createTags(input) {
@@ -19,3 +27,43 @@ function createTags(input) {
         tagsEl.appendChild(tagEl)  // Add each input to the array of tags
     })
 }
+
+function randomSelect() {
+    const times = 30  // This is the number of times it will highlight each one before it stops
+
+    // This interval runs as the animation during the random selection process, highlighting and unhighlighting the tags.
+    const interval = setInterval(() => {  
+        const randomTag = pickRandomTag()
+
+        highlightTag(randomTag)
+
+        setTimeout(() => {
+            unHighlightTag(randomTag)
+        }, 100);
+    }, 100);  // Happens every 100 milliseconds
+
+    // This interval stops the above animation and selects the random option as the final choice, highlighting it as the random answer.
+    setTimeout(() => {   
+        clearInterval(interval) // Stops the interval of highlighting tags for selection
+
+        setTimeout (() => {  // Picks the random answer tag and highlights it.
+            const randomTag = pickRandomTag()
+
+            highlightTag(randomTag)
+        }, 100)
+    }, times * 100)
+}
+
+function pickRandomTag() {
+    const tags = document.querySelectorAll('.tag')
+    return tags[Math.floor(Math.random() * tags.length)]
+}
+
+function highlightTag(tag) {
+    tag.classList.add('highlight')
+}
+
+function unHighlightTag(tag) {
+    tag.classList.remove('highlight')
+}
+    
