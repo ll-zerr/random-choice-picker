@@ -8,7 +8,7 @@ The goal of the project is to create an application that allows the user to inpu
 
 ### View My Project: 
 
-![Screenshot]()
+![Screenshot](images/smartmockups_rcp-img2.jpg)
 
 ## Features
 
@@ -54,6 +54,7 @@ The goal of the project is to create an application that allows the user to inpu
     * Create a variable for the number of times we want each tag highlighted during the selection process before the completion of the animation.
     * Utilize the `setInterval()` method to run the animation during the selection process, highlighting and unhighlighting tags.
     * Use the `setTimeout()` method to stop the above animation and select a random option as the final choice, highlighting it as the answer.
+- Update styles for responsiveness across multiple devices.
 
 ### Continued development
 
